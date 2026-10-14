@@ -1,96 +1,739 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="section section-soft" id="armada">
+<title>SAGARA TRAVEL ANTAR KOTA | Premium Travel Indonesia</title>
+<meta name="description" content="SAGARA TRAVEL melayani perjalanan antar kota dengan armada nyaman, layanan profesional, dan pemesanan mudah melalui WhatsApp.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="SAGARA TRAVEL ANTAR KOTA">
+<meta property="og:description" content="Perjalanan nyaman. Layanan berkelas. Teman perjalanan Anda.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#0a0a0a;
+  --panel:#121212;
+  --gold:#d5ad62;
+  --gold-light:#f0d59c;
+  --white:#f8f6f1;
+  --muted:#aaa69c;
+  --line:rgba(213,173,98,.2);
+  --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:'DM Sans',sans-serif;line-height:1.7;
+  overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.gold{color:var(--gold)}
+.eyebrow{
+  color:var(--gold);font-size:.75rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase
+}
+h1,h2,h3{line-height:1.2}
+h1,h2{font-family:'Playfair Display',serif;font-weight:600}
+h2{font-size:clamp(2rem,4vw,3.2rem)}
+.section{padding:100px 0}
+.section-head{max-width:680px;margin-bottom:42px}
+.section-head p{color:var(--muted);margin-top:14px}
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;gap:10px;
+  min-height:48px;padding:12px 22px;border:1px solid var(--gold);
+  background:var(--gold);color:#15110a;font-weight:700;
+  font-size:.9rem;cursor:pointer;transition:.25s
+}
+.btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#15110a}
+.topbar{
+  border-bottom:1px solid var(--line);color:var(--muted);
+  font-size:.78rem;padding:8px 0
+}
+.topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,10,.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:42px;height:42px;border:1px solid var(--gold);
+  display:grid;place-items:center;color:var(--gold);
+  font-family:'Playfair Display',serif;font-size:1.35rem
+}
+.brand-name{font-weight:700;letter-spacing:2px;font-size:1rem}
+.brand-sub{display:block;color:var(--gold);font-size:.65rem;letter-spacing:2px}
+.nav-links{display:flex;align-items:center;gap:27px}
+.nav-links>a:not(.btn){font-size:.84rem;color:#d4d0c7}
+.nav-links>a:not(.btn):hover{color:var(--gold)}
+.menu-toggle{
+  display:none;background:transparent;color:var(--gold);
+  border:1px solid var(--line);padding:8px 12px;font-size:1.2rem
+}
+
+/* HERO */
+.hero{
+  position:relative;min-height:650px;display:flex;align-items:center;
+  overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+  linear-gradient(90deg,rgba(7,7,7,.97) 0%,rgba(7,7,7,.86) 44%,rgba(7,7,7,.28) 100%),
+  linear-gradient(0deg,#0a0a0a 0%,transparent 40%),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85') center/cover;
+}
+.hero-content{position:relative;z-index:1;max-width:700px;padding:100px 0}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.6rem);margin:20px 0;letter-spacing:-1.5px}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:560px;color:#d1cdc4;font-size:1.02rem}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.hero-note{margin-top:34px;color:#d2c6ae;font-size:.78rem;letter-spacing:.6px}
+.hero-note span{color:var(--gold);padding-right:8px}
+
+/* INTRO STRIP */
+.trust-strip{border-bottom:1px solid var(--line);background:#0e0e0e}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.trust-item{padding:25px 20px;border-right:1px solid var(--line)}
+.trust-item:first-child{padding-left:0}
+.trust-item:last-child{border:0}
+.trust-item strong{display:block;color:var(--gold);font-size:.92rem}
+.trust-item span{color:var(--muted);font-size:.8rem}
+
+/* FLEET */
+.fleet-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.fleet-card{
+  background:var(--panel);border:1px solid var(--line);
+  overflow:hidden;transition:transform .25s,border-color .25s
+}
+.fleet-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.fleet-image{height:205px;background:#202020;position:relative;overflow:hidden}
+.fleet-image img{height:100%;transition:transform .4s}
+.fleet-card:hover .fleet-image img{transform:scale(1.04)}
+.fleet-label{
+  position:absolute;left:12px;top:12px;background:var(--gold);
+  color:#17120a;font-size:.67rem;font-weight:700;padding:5px 9px
+}
+.fleet-info{padding:20px}
+.fleet-info h3{font-size:1.06rem;margin-bottom:5px}
+.fleet-info p{color:var(--muted);font-size:.82rem;min-height:44px}
+.fleet-meta{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;
+  display:flex;justify-content:space-between;gap:8px;color:#d7c8a8;font-size:.76rem}
+.fleet-info .btn{width:100%;margin-top:17px;min-height:43px;padding:9px}
+
+/* SERVICES */
+.services{background:#0e0e0e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.service-card{padding:28px;border:1px solid var(--line);background:#111}
+.service-icon{
+  width:46px;height:46px;border:1px solid var(--gold);
+  color:var(--gold);display:grid;place-items:center;font-size:1.3rem;margin-bottom:20px
+}
+.service-card h3{font-size:1.08rem;margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:.88rem}
+
+/* ROUTES */
+.route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.route-card{
+  display:flex;align-items:center;gap:15px;padding:20px;
+  background:var(--panel);border:1px solid var(--line)
+}
+.route-icon{font-size:1.4rem;color:var(--gold)}
+.route-card strong{display:block;font-size:.9rem}
+.route-card span{font-size:.78rem;color:var(--muted)}
+.route-arrow{margin-left:auto;color:var(--gold)}
+
+/* BOOKING */
+.booking-wrap{
+  display:grid;grid-template-columns:.85fr 1.15fr;
+  border:1px solid var(--line);background:#101010
+}
+.booking-aside{
+  padding:45px;background:
+  linear-gradient(160deg,rgba(10,10,10,.65),#101010),
+  url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80') center/cover
+}
+.booking-aside h2{margin:18px 0}
+.booking-aside p{color:#c3beb3;font-size:.9rem}
+.booking-points{list-style:none;margin-top:28px}
+.booking-points li{margin:13px 0;color:#ded7c9;font-size:.88rem}
+.booking-points li::before{content:"✓";color:var(--gold);margin-right:10px}
+.booking-form{padding:40px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.8rem;color:#ded7c9}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 13px;background:#090909;color:var(--white);
+  border:1px solid #34312a;outline:none;border-radius:0
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{min-height:90px;resize:vertical}
+.field select option{background:#111}
+.booking-form .btn{width:100%;margin-top:22px}
+.form-hint{color:var(--muted);font-size:.75rem;margin-top:12px}
+
+/* FAQ */
+.faq-list{max-width:850px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:15px}
+summary::after{content:"+";color:var(--gold);font-size:1.25rem}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);font-size:.9rem;padding:13px 25px 0 0}
+
+/* CTA */
+.final-cta{
+  text-align:center;background:linear-gradient(135deg,#19150d,#0c0c0c);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.final-cta h2{max-width:750px;margin:15px auto}
+.final-cta p{color:var(--muted);max-width:600px;margin:0 auto 25px}
+.final-cta .btn{margin:5px}
+
+/* FOOTER */
+footer{padding:55px 0 20px;background:#080808}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:35px}
+.footer-about p{max-width:340px;color:var(--muted);font-size:.85rem;margin-top:17px}
+.footer-col h3{font-size:.9rem;color:var(--gold);margin-bottom:16px}
+.footer-col a,.footer-col p{display:block;color:var(--muted);font-size:.83rem;margin:9px 0}
+.footer-col a:hover{color:var(--gold)}
+.copyright{border-top:1px solid var(--line);padding-top:18px;color:#777;font-size:.75rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.float-wa{
+  position:fixed;right:20px;bottom:20px;z-index:60;
+  width:57px;height:57px;border-radius:50%;display:grid;place-items:center;
+  background:#20bd68;color:white;font-size:1.6rem;
+  box-shadow:0 5px 25px #0008;border:2px solid #ffffff25
+}
+.float-wa:hover{transform:translateY(-3px)}
+.reveal{opacity:1;transform:none}
+.js-ready .reveal{opacity:0;transform:translateY(16px);transition:.55s ease}
+.js-ready .reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:980px){
+  .fleet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{min-height:590px}
+  .nav-links{gap:16px}
+  .booking-wrap{grid-template-columns:1fr 1.2fr}
+  .booking-aside{padding:30px}
+  .booking-form{padding:30px}
+}
+@media(max-width:760px){
+  .container{width:min(100% - 30px,var(--max))}
+  .section{padding:72px 0}
+  .topbar .container{justify-content:center;text-align:center}
+  .nav{height:70px}
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;position:absolute;left:0;right:0;top:70px;
+    padding:20px 22px 25px;background:#0b0b0b;
+    border-bottom:1px solid var(--line);align-items:stretch;gap:0
+  }
+  .nav-links.open{display:flex;flex-direction:column}
+  .nav-links>a:not(.btn){padding:12px 0;border-bottom:1px solid #ffffff0c}
+  .nav-links .btn{margin-top:15px}
+  .hero{min-height:600px;background-position:58% center}
+  .hero-content{padding:80px 0}
+  .hero h1{font-size:clamp(2.7rem,12vw,4.5rem)}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-item,.trust-item:first-child{padding:16px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .trust-item:last-child{border-bottom:0}
+  .service-grid,.route-grid{grid-template-columns:1fr}
+  .booking-wrap{grid-template-columns:1fr}
+  .booking-aside{padding:30px}
+  .booking-form{padding:24px 20px}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:460px){
+  .fleet-grid{grid-template-columns:1fr}
+  .fleet-image{height:230px}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .hero-actions .btn{width:100%}
+  .brand-name{font-size:.9rem}
+  .copyright{justify-content:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
   <div class="container">
-    <div class="section-heading reveal">
-      <span class="eyebrow">Armada Travel Indonesia</span>
-      <h2>Mobil Favorit untuk Perjalanan Antar Kota</h2>
-      <p>Dari travel reguler hingga rombongan keluarga, pilih kategori kendaraan yang sesuai kebutuhan perjalanan Anda.</p>
+    <span>✦ Layanan Travel Mobil Antar Kota</span>
+    <span>Perjalanan Anda, Prioritas Kami</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#beranda" aria-label="Sagara Travel Beranda">
+      <div class="brand-mark">S</div>
+      <div>
+        <div class="brand-name">SAGARA TRAVEL</div>
+        <span class="brand-sub">ANTAR KOTA · INDONESIA</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#armada">Armada</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#rute">Rute</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#pesan">Pesan Perjalanan ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="beranda">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Premium Intercity Travel</div>
+      <h1>Perjalanan Nyaman.<br><span>Layanan Berkelas.</span></h1>
+      <p>
+        Temani perjalanan antar kota Anda dengan pilihan armada yang nyaman,
+        proses pemesanan yang mudah, dan pelayanan yang mengutamakan kenyamanan.
+      </p>
+      <div class="hero-actions">
+        <a href="#pesan" class="btn">Pesan Sekarang <span>↗</span></a>
+        <a href="#armada" class="btn btn-outline">Jelajahi Armada</a>
+      </div>
+      <div class="hero-note"><span>✦</span> AVANZA · INNOVA · HIACE · ELF</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <strong>Armada Pilihan</strong>
+      <span>Sesuaikan kendaraan dengan kebutuhan perjalanan</span>
+    </div>
+    <div class="trust-item">
+      <strong>Pemesanan Praktis</strong>
+      <span>Kirim detail perjalanan langsung melalui WhatsApp</span>
+    </div>
+    <div class="trust-item">
+      <strong>Layanan Antar Kota</strong>
+      <span>Diskusikan rute dan jadwal sebelum keberangkatan</span>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="armada">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Pilihan Kendaraan</div>
+      <h2>Armada untuk Setiap <span class="gold">Perjalanan.</span></h2>
+      <p>
+        Dari perjalanan keluarga hingga rombongan, pilih kendaraan yang sesuai
+        dengan jumlah penumpang dan kebutuhan Anda.
+      </p>
     </div>
 
     <div class="fleet-grid">
       <article class="fleet-card reveal">
-        <img class="fleet-image"
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/2023_Toyota_Avanza_1.3_E%2C_Central_Surabaya.jpg"
-          alt="Toyota Avanza di Indonesia" loading="lazy">
-        <div class="fleet-content">
-          <div class="fleet-title">
-            <h3>Toyota Avanza / Daihatsu Xenia</h3>
-            <span class="fleet-tag">REGULER</span>
-          </div>
-          <p>Mobil keluarga yang familiar di Indonesia, cocok untuk perjalanan pribadi dan layanan travel sesuai ketersediaan unit.</p>
-          <div class="fleet-specs">
-            <span><i class="fa-solid fa-users"></i> Kapasitas sesuai unit</span>
-            <span><i class="fa-solid fa-suitcase"></i> Bagasi tersedia</span>
-          </div>
-          <div class="fleet-bottom">
-            <div><small>Informasi tarif</small><strong>Hubungi admin</strong></div>
-            <a href="#booking" class="btn btn-primary" data-vehicle="Toyota Avanza / Daihatsu Xenia">Pilih Mobil</a>
-          </div>
+        <div class="fleet-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2023_Toyota_Avanza_1.3_E%2C_Central_Surabaya.jpg"
+               alt="Toyota Avanza untuk perjalanan travel antar kota" loading="lazy"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80'">
+          <span class="fleet-label">FAMILY TRIP</span>
+        </div>
+        <div class="fleet-info">
+          <h3>Toyota Avanza</h3>
+          <p>Praktis untuk perjalanan keluarga kecil dan perjalanan pribadi.</p>
+          <div class="fleet-meta"><span>MPV</span><span>Nyaman & praktis</span></div>
+          <button class="btn btn-outline choose-car" data-car="Toyota Avanza">Pilih Armada ↗</button>
         </div>
       </article>
 
       <article class="fleet-card reveal">
-        <img class="fleet-image"
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_Innova_Reborn_2022.jpg"
-          alt="Toyota Innova Reborn" loading="lazy">
-        <div class="fleet-content">
-          <div class="fleet-title">
-            <h3>Toyota Innova Reborn / Zenix</h3>
-            <span class="fleet-tag">KELUARGA</span>
-          </div>
-          <p>Alternatif untuk perjalanan antarkota, keluarga, dan kebutuhan bisnis dengan pilihan kabin yang lebih lega.</p>
-          <div class="fleet-specs">
-            <span><i class="fa-solid fa-users"></i> Kapasitas sesuai unit</span>
-            <span><i class="fa-solid fa-road"></i> Antar kota</span>
-          </div>
-          <div class="fleet-bottom">
-            <div><small>Informasi tarif</small><strong>Hubungi admin</strong></div>
-            <a href="#booking" class="btn btn-primary" data-vehicle="Toyota Innova Reborn / Zenix">Pilih Mobil</a>
-          </div>
+        <div class="fleet-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_Innova_Reborn_2022.jpg"
+               alt="Toyota Innova Reborn untuk travel premium" loading="lazy"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80'">
+          <span class="fleet-label">PREMIUM</span>
+        </div>
+        <div class="fleet-info">
+          <h3>Toyota Innova</h3>
+          <p>Pilihan MPV untuk perjalanan jauh bersama keluarga atau rekan.</p>
+          <div class="fleet-meta"><span>MPV</span><span>Perjalanan jauh</span></div>
+          <button class="btn btn-outline choose-car" data-car="Toyota Innova Reborn / Zenix">Pilih Armada ↗</button>
         </div>
       </article>
 
       <article class="fleet-card reveal">
-        <img class="fleet-image"
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_HiAce_Premio_in_Melasti_Beach%2C_Bali_%2825-03-2026%29.jpg"
-          alt="Toyota HiAce Premio di Indonesia" loading="lazy">
-        <div class="fleet-content">
-          <div class="fleet-title">
-            <h3>Toyota HiAce Commuter / Premio</h3>
-            <span class="fleet-tag">ROMBONGAN</span>
-          </div>
-          <p>Minibus untuk perjalanan rombongan, wisata keluarga, perjalanan kantor, dan kebutuhan grup sesuai unit tersedia.</p>
-          <div class="fleet-specs">
-            <span><i class="fa-solid fa-users"></i> Banyak penumpang</span>
-            <span><i class="fa-solid fa-suitcase"></i> Bagasi sesuai unit</span>
-          </div>
-          <div class="fleet-bottom">
-            <div><small>Informasi tarif</small><strong>Hubungi admin</strong></div>
-            <a href="#booking" class="btn btn-primary" data-vehicle="Toyota HiAce Commuter / Premio">Pilih Mobil</a>
-          </div>
+        <div class="fleet-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_HiAce_Premio_in_Melasti_Beach%2C_Bali_%2825-03-2026%29.jpg"
+               alt="Toyota HiAce untuk rombongan travel" loading="lazy"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80'">
+          <span class="fleet-label">GROUP TRIP</span>
+        </div>
+        <div class="fleet-info">
+          <h3>Toyota HiAce</h3>
+          <p>Untuk perjalanan rombongan, keluarga besar, dan kegiatan bersama.</p>
+          <div class="fleet-meta"><span>Minibus</span><span>Rombongan</span></div>
+          <button class="btn btn-outline choose-car" data-car="Toyota HiAce">Pilih Armada ↗</button>
         </div>
       </article>
 
       <article class="fleet-card reveal">
-        <img class="fleet-image"
-          src="https://commons.wikimedia.org/wiki/Special:FilePath/Isuzu_Elf_250.jpg"
-          alt="Isuzu Elf untuk transportasi rombongan" loading="lazy">
-        <div class="fleet-content">
-          <div class="fleet-title">
-            <h3>Isuzu Elf</h3>
-            <span class="fleet-tag">GRUP</span>
-          </div>
-          <p>Pilihan kendaraan untuk rombongan, acara keluarga, wisata, dan perjalanan kelompok sesuai konfigurasi kendaraan.</p>
-          <div class="fleet-specs">
-            <span><i class="fa-solid fa-users"></i> Kapasitas sesuai unit</span>
-            <span><i class="fa-solid fa-route"></i> Perjalanan grup</span>
-          </div>
-          <div class="fleet-bottom">
-            <div><small>Informasi tarif</small><strong>Hubungi admin</strong></div>
-            <a href="#booking" class="btn btn-primary" data-vehicle="Isuzu Elf">Pilih Mobil</a>
-          </div>
+        <div class="fleet-image">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Isuzu_Elf_250.jpg"
+               alt="Isuzu Elf untuk perjalanan kelompok" loading="lazy"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80'">
+          <span class="fleet-label">GROUP & CHARTER</span>
         </div>
+        <div class="fleet-info">
+          <h3>Isuzu Elf</h3>
+          <p>Alternatif kendaraan untuk rombongan dan perjalanan terjadwal.</p>
+          <div class="fleet-meta"><span>Minibus</span><span>Grup perjalanan</span></div>
+          <button class="btn btn-outline choose-car" data-car="Isuzu Elf">Pilih Armada ↗</button>
+        </div>
+      </article>
+    </div>
+    <p style="color:var(--muted);font-size:.77rem;margin-top:18px">
+      *Jenis armada, kapasitas, ketersediaan, dan fasilitas dikonfirmasi saat pemesanan.
+    </p>
+  </div>
+</section>
+
+<section class="section services" id="layanan">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Layanan Kami</div>
+      <h2>Satu Perjalanan, <span class="gold">Banyak Kebutuhan.</span></h2>
+      <p>Hubungi tim Sagara Travel untuk mendiskusikan layanan yang sesuai dengan rencana perjalanan Anda.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <div class="service-icon">↗</div>
+        <h3>Travel Antar Kota</h3>
+        <p>Rencanakan perjalanan antarkota dengan pilihan rute dan jadwal yang dikonfirmasi terlebih dahulu.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon">◇</div>
+        <h3>Sewa Mobil & Charter</h3>
+        <p>Diskusikan kebutuhan kendaraan untuk perjalanan pribadi, keluarga, atau agenda khusus.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon">✧</div>
+        <h3>Perjalanan Rombongan</h3>
+        <p>Pilihan kendaraan untuk rombongan keluarga, komunitas, acara, maupun perjalanan bersama.</p>
       </article>
     </div>
   </div>
 </section>
+
+<section class="section" id="rute">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Rencana Perjalanan</div>
+      <h2>Ke Mana Tujuan <span class="gold">Anda Berikutnya?</span></h2>
+      <p>Sampaikan kota asal dan tujuan. Rute, jadwal, serta ketersediaan layanan akan dikonfirmasi oleh admin.</p>
+    </div>
+
+    <div class="route-grid">
+      <a class="route-card reveal" href="#pesan" data-route="Jakarta – Bandung">
+        <span class="route-icon">⌁</span>
+        <div><strong>Jakarta – Bandung</strong><span>Rute antar kota</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+      <a class="route-card reveal" href="#pesan" data-route="Jakarta – Cirebon">
+        <span class="route-icon">⌁</span>
+        <div><strong>Jakarta – Cirebon</strong><span>Rute antar kota</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+      <a class="route-card reveal" href="#pesan" data-route="Bandung – Jakarta">
+        <span class="route-icon">⌁</span>
+        <div><strong>Bandung – Jakarta</strong><span>Rute antar kota</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+      <a class="route-card reveal" href="#pesan" data-route="Jakarta – Semarang">
+        <span class="route-icon">⌁</span>
+        <div><strong>Jakarta – Semarang</strong><span>Rute antar kota</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+      <a class="route-card reveal" href="#pesan" data-route="Jakarta – Yogyakarta">
+        <span class="route-icon">⌁</span>
+        <div><strong>Jakarta – Yogyakarta</strong><span>Rute antar kota</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+      <a class="route-card reveal" href="#pesan" data-route="Rute lainnya">
+        <span class="route-icon">＋</span>
+        <div><strong>Rute Lainnya</strong><span>Tanyakan kepada admin</span></div>
+        <span class="route-arrow">↗</span>
+      </a>
+    </div>
+    <p style="color:var(--muted);font-size:.77rem;margin-top:18px">Daftar di atas merupakan contoh rute untuk ditanyakan, bukan jaminan rute aktif atau jadwal tersedia.</p>
+  </div>
+</section>
+
+<section class="section services" id="pesan">
+  <div class="container">
+    <div class="booking-wrap reveal">
+      <div class="booking-aside">
+        <div class="eyebrow">Reservasi Perjalanan</div>
+        <h2>Rencanakan Perjalanan <span class="gold">Anda.</span></h2>
+        <p>Isi detail perjalanan. Kami akan menyiapkan pesan WhatsApp agar Anda dapat mengirim permintaan pemesanan kepada admin.</p>
+        <ul class="booking-points">
+          <li>Pilih kendaraan sesuai kebutuhan</li>
+          <li>Masukkan kota asal dan tujuan</li>
+          <li>Tentukan tanggal dan jumlah penumpang</li>
+          <li>Konfirmasi harga dan ketersediaan dengan admin</li>
+        </ul>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="customerName">Nama pemesan *</label>
+            <input id="customerName" name="customerName" placeholder="Nama lengkap" required>
+          </div>
+          <div class="field">
+            <label for="customerPhone">Nomor HP *</label>
+            <input id="customerPhone" name="customerPhone" type="tel" placeholder="Nomor yang aktif" required>
+          </div>
+          <div class="field">
+            <label for="origin">Kota asal *</label>
+            <input id="origin" name="origin" placeholder="Contoh: Jakarta" required>
+          </div>
+          <div class="field">
+            <label for="destination">Kota tujuan *</label>
+            <input id="destination" name="destination" placeholder="Contoh: Bandung" required>
+          </div>
+          <div class="field">
+            <label for="travelDate">Tanggal berangkat *</label>
+            <input id="travelDate" name="travelDate" type="date" required>
+          </div>
+          <div class="field">
+            <label for="passengers">Jumlah penumpang *</label>
+            <select id="passengers" name="passengers" required>
+              <option value="">Pilih jumlah</option>
+              <option>1 penumpang</option>
+              <option>2 penumpang</option>
+              <option>3 penumpang</option>
+              <option>4 penumpang</option>
+              <option>5–6 penumpang</option>
+              <option>7–10 penumpang</option>
+              <option>Lebih dari 10 penumpang</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="vehicle">Pilihan armada *</label>
+            <select id="vehicle" name="vehicle" required>
+              <option value="">Pilih armada</option>
+              <option>Toyota Avanza</option>
+              <option>Toyota Innova Reborn / Zenix</option>
+              <option>Toyota HiAce</option>
+              <option>Isuzu Elf</option>
+              <option>Konsultasi armada</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="notes">Catatan tambahan (opsional)</label>
+            <textarea id="notes" name="notes" placeholder="Contoh: jumlah bagasi, titik jemput, atau kebutuhan khusus"></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">Kirim Permintaan via WhatsApp ↗</button>
+        <p class="form-hint">Permintaan belum menjadi reservasi terkonfirmasi. Jadwal, harga, dan ketersediaan dikonfirmasi oleh admin.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Informasi</div>
+      <h2>Pertanyaan yang <span class="gold">Sering Diajukan.</span></h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Bagaimana cara memesan travel?</summary>
+        <p>Isi formulir pemesanan di website, lalu tekan tombol WhatsApp. Pesan akan disiapkan untuk dikirim kepada admin agar detail perjalanan dapat dikonfirmasi.</p>
+      </details>
+      <details>
+        <summary>Apakah semua rute tersedia setiap hari?</summary>
+        <p>Belum tentu. Rute, jadwal, dan ketersediaan kendaraan harus dikonfirmasi terlebih dahulu kepada admin.</p>
+      </details>
+      <details>
+        <summary>Bagaimana cara mengetahui harga perjalanan?</summary>
+        <p>Sampaikan kota asal, tujuan, tanggal keberangkatan, jumlah penumpang, dan pilihan armada kepada admin untuk memperoleh informasi harga.</p>
+      </details>
+      <details>
+        <summary>Bisakah memesan kendaraan untuk rombongan?</summary>
+        <p>Anda dapat menanyakan kebutuhan rombongan dan pilihan kendaraan seperti HiAce atau Elf. Kapasitas serta ketersediaan perlu dikonfirmasi.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section final-cta">
+  <div class="container reveal">
+    <div class="eyebrow">Sagara Travel Antar Kota</div>
+    <h2>Perjalanan Anda Dimulai <span class="gold">Dari Sini.</span></h2>
+    <p>Sudah punya rencana perjalanan? Hubungi kami untuk mendiskusikan tujuan, kendaraan, dan jadwal yang Anda butuhkan.</p>
+    <a class="btn" href="#pesan">Rencanakan Perjalanan ↗</a>
+    <a class="btn btn-outline" href="#armada">Lihat Armada</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="#beranda">
+          <div class="brand-mark">S</div>
+          <div>
+            <div class="brand-name">SAGARA TRAVEL</div>
+            <span class="brand-sub">ANTAR KOTA · INDONESIA</span>
+          </div>
+        </a>
+        <p>Layanan perjalanan antar kota dengan fokus pada kenyamanan, kemudahan pemesanan, dan pelayanan yang profesional.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Navigasi</h3>
+        <a href="#beranda">Beranda</a>
+        <a href="#armada">Pilihan Armada</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#rute">Rute Perjalanan</a>
+        <a href="#pesan">Pemesanan</a>
+      </div>
+      <div class="footer-col">
+        <h3>Informasi</h3>
+        <p>Email: sagaratravel@gmail.com</p>
+        <p>Wilayah: Jakarta Selatan</p>
+        <p>Kontak WhatsApp: melalui tombol pemesanan setelah nomor admin diatur.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> SAGARA TRAVEL ANTAR KOTA.</span>
+      <span>Travel with comfort. Travel with confidence.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" id="floatWa" href="#pesan" aria-label="Hubungi Sagara Travel melalui formulir WhatsApp" title="Pesan perjalanan">✆</a>
+
+<script>
+/* PENTING: Ganti dengan nomor WhatsApp admin.
+   Gunakan kode negara 62, tanpa tanda +, spasi, atau tanda hubung.
+   Contoh format: 6281234567890
+*/
+const WHATSAPP_NUMBER = "GANTI_DENGAN_NOMOR_ADMIN";
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Pilihan armada otomatis masuk ke formulir */
+document.querySelectorAll(".choose-car").forEach(button => {
+  button.addEventListener("click", () => {
+    document.getElementById("vehicle").value = button.dataset.car;
+    document.getElementById("pesan").scrollIntoView({behavior:"smooth"});
+  });
+});
+
+/* Pilihan rute contoh otomatis mengisi kota asal dan tujuan */
+document.querySelectorAll("[data-route]").forEach(link => {
+  link.addEventListener("click", () => {
+    const parts = link.dataset.route.split(" – ");
+    if (parts.length === 2) {
+      document.getElementById("origin").value = parts[0];
+      document.getElementById("destination").value = parts[1];
+    }
+  });
+});
+
+/* Tanggal keberangkatan tidak boleh sebelum hari ini */
+const dateInput = document.getElementById("travelDate");
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth()+1).padStart(2,"0"),
+  String(today.getDate()).padStart(2,"0")
+].join("-");
+dateInput.min = localToday;
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (!this.reportValidity()) return;
+
+  if (!/^[1-9]\d{8,14}$/.test(WHATSAPP_NUMBER)) {
+    alert("Bos, nomor WhatsApp admin belum diatur. Edit WHATSAPP_NUMBER di bagian script paling bawah, lalu commit ulang.");
+    return;
+  }
+
+  const form = new FormData(this);
+  const message = [
+    "*PERMINTAAN PEMESANAN SAGARA TRAVEL*",
+    "",
+    "Nama: " + form.get("customerName"),
+    "Nomor HP: " + form.get("customerPhone"),
+    "Kota asal: " + form.get("origin"),
+    "Kota tujuan: " + form.get("destination"),
+    "Tanggal berangkat: " + form.get("travelDate"),
+    "Jumlah penumpang: " + form.get("passengers"),
+    "Pilihan armada: " + form.get("vehicle"),
+    "Catatan: " + (form.get("notes") || "-"),
+    "",
+    "Mohon informasi harga, jadwal, dan ketersediaan kendaraan. Terima kasih."
+  ].join("\n");
+
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank", "noopener,noreferrer");
+});
+
+/* Animasi ringan; konten tetap terlihat jika JavaScript animasi tidak tersedia */
+document.documentElement.classList.add("js-ready");
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.08});
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+} else {
+  document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+}
+</script>
+</body>
+</html>
+```
